@@ -9,6 +9,4 @@ If, like me, you don't understand anything about Redux, this project is made for
 
 ## Screenshot
 
-```
-![alt text](https://ibb.co/2ntSm0f)
-```
+![alt text](https://i.ibb.co/8K5bTnS/Screenshot-1549058168.png)
