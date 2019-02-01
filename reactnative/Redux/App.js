@@ -13,7 +13,9 @@ const initialState =  { // Creating the initial state
   clickDecrement: 0,
   clickIncrement: 0,
   step: 1,
+  stepDisp: '1',
   resetValue: 0,
+  resetValueDisp: '0',
 }
 
 const store = createStore(reducer, initialState); // Create the store with the reducer

@@ -10,10 +10,10 @@ class Incrementer extends React.Component {
   render() {
     
     const {reset, decrement, increment, changeResetVal, changeStep} = this.props;         // Actions
-    const {counter, theState, step, resetValue} = this.props; // Values
+    const {counter, theState, step, resetValue, resetValueDisp, stepDisp} = this.props; // Values
 
     return (
-      <KeyboardAwareScrollView contentContainerStyle={styles.container} >
+      <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer} >
       
         <Text style={styles.bigText}>Learn Redux</Text>
 
@@ -26,10 +26,10 @@ class Incrementer extends React.Component {
 
         <View style={styles.centered}> 
           <Text>Reset value : </Text>
-          <TextInput style={styles.textinput} placeholder="Reset value" value={resetValue.toString()} 
+          <TextInput style={styles.textinput} placeholder="Reset value" value={resetValueDisp} 
           keyboardType='numeric' onChangeText={(text) => changeResetVal(text)} />
           <Text>Step : </Text>
-          <TextInput style={styles.textinput} placeholder="Step" value={step.toString()}
+          <TextInput style={styles.textinput} placeholder="Step" value={stepDisp}
           keyboardType='numeric' onChangeText={(text) => changeStep(text)} />
           
           <View style={styles.incrementer}>          
@@ -69,7 +69,9 @@ function mapStateToProps(state) {
     counter: state.counter,
     theState: state,
     step: state.step,
+    stepDisp: state.stepDisp,
     resetValue: state.resetValue,
+    resetValueDisp: state.resetValueDisp,
   }
 }
 
@@ -94,9 +96,12 @@ export default connect(mapStateToProps, mapDispatchToProps)(Incrementer);
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 30,
     flex: 1,
     flexDirection: 'column',
+  },
+  contentContainer: {
+    paddingTop: 30,
+    //flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
   },

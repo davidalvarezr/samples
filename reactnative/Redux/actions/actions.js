@@ -29,7 +29,7 @@ export const resetAction = (value = 0) => {
 }
 
 export const changeResetValAction = (value = 0) => {
-    value = value == "" ? 0 : value;
+    value = value === "" ? 0 : value;
     return {
         type: CHANGE_RESET_VAL,
         payload: parseInt(value),
@@ -37,7 +37,7 @@ export const changeResetValAction = (value = 0) => {
 }
 
 export const changeStepAction = (value = 1) => {
-    value = value == "" ? 0 : value;
+    value = value === "" ? 0 : value;
     return {
         type: CHANGE_STEP,
         payload: parseInt(value),
