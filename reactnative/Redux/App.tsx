@@ -1,11 +1,10 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import {createStore } from 'redux';
+import { createStore } from 'redux';
 import reducer from './reducers';
 import { Provider } from 'react-redux';
 
 import Incrementer from './Incrementer';
-
 
 const initialState : any =  { // Creating the initial state
   counter: 0,           // Initial state of the counter
@@ -16,7 +15,7 @@ const initialState : any =  { // Creating the initial state
   stepDisp: '1',
   resetValue: 0,
   resetValueDisp: '0',
-}
+};
 
 const store = createStore(reducer, initialState); // Create the store with the reducer
 

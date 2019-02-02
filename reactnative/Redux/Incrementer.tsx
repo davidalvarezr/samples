@@ -2,10 +2,9 @@ import React, { Dispatch } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { incrementAction, decrementAction, resetAction, changeResetValAction, changeStepAction } from './actions/actions';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 class Incrementer extends React.Component {
-
 
     render() {
 
@@ -27,10 +26,10 @@ class Incrementer extends React.Component {
                 <View style={styles.centered}>
                     <Text>Reset value : </Text>
                     <TextInput style={styles.textinput} placeholder="Reset value" value={resetValueDisp.toString()}
-                        keyboardType='numeric' onChangeText={(text) => changeResetVal(parseInt(text))} />
+                        keyboardType="numeric" onChangeText={ text => changeResetVal(parseInt(text))} />
                     <Text>Step : </Text>
                     <TextInput style={styles.textinput} placeholder="Step" value={stepDisp}
-                        keyboardType='numeric' onChangeText={(text) => changeStep(text)} />
+                        keyboardType="numeric" onChangeText={ text => changeStep(text)} />
 
                     <View style={styles.incrementer}>
                         <TouchableOpacity style={[styles.squareCentered, styles.greyBackground]}
@@ -72,13 +71,13 @@ function mapStateToProps(state: ReduxState) {
         stepDisp: state.stepDisp,
         resetValue: state.resetValue,
         resetValueDisp: state.resetValueDisp,
-    }
+    };
 }
 
 /**
  * Elements on the left represent the props (functions, this time) of the component
  * Element in dispatcher is an action (in ./actions/actions.js)
- * @param {*} dispatch 
+ * @param {*} dispatch
  */
 function mapDispatchToProps(dispatch: Dispatch<Action>) {
     return {
@@ -87,12 +86,10 @@ function mapDispatchToProps(dispatch: Dispatch<Action>) {
         reset: (value: number) => dispatch(resetAction(value)),
         changeResetVal: (value: number) => dispatch(changeResetValAction(value)),
         changeStep: (value: number) => dispatch(changeStepAction(value)),
-    }
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Incrementer);
-
-
 
 const styles = StyleSheet.create({
     container: {
@@ -101,7 +98,6 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         paddingTop: 30,
-        //flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
     },
@@ -115,7 +111,7 @@ const styles = StyleSheet.create({
         height: 50,
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 10
+        padding: 10,
     },
     greyBackground: {
         backgroundColor: '#DDDDDD',
@@ -146,5 +142,5 @@ const styles = StyleSheet.create({
     },
     textinput: {
         width: 150,
-    }
+    },
 });
