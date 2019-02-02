@@ -9,6 +9,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@types/react-redux": "^7.0.1",
     "expo": "^31.0.2",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
@@ -18,10 +19,13 @@
     "redux": "^4.0.1"
   },
   "devDependencies": {
+    "@types/jest": "^23.3.13",
     "@types/react": "^16.8.1",
     "@types/react-native": "^0.57.32",
+    "@types/react-test-renderer": "^16.0.3",
     "babel-preset-expo": "^5.0.0",
     "react-native-typescript-transformer": "^1.2.11",
+    "ts-jest": "^23.10.5",
     "typescript": "^3.3.1"
   }
 }

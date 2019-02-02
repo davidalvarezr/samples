@@ -1,13 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import {createStore} from 'redux';
+import { StyleSheet } from 'react-native';
+import {createStore } from 'redux';
 import reducer from './reducers';
 import { Provider } from 'react-redux';
 
 import Incrementer from './Incrementer';
 
 
-const initialState =  { // Creating the initial state
+const initialState : any =  { // Creating the initial state
   counter: 0,           // Initial state of the counter
   clickReset: 0,
   clickDecrement: 0,
@@ -24,7 +24,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Incrementer value={store.getState().counter} />
+        <Incrementer />
       </Provider>
     );
   }

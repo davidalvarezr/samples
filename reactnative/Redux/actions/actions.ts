@@ -7,7 +7,7 @@ import { INCREMENT, DECREMENT, RESET, CHANGE_RESET_VAL, CHANGE_STEP } from './ty
  *                  For reset, it is the default value avter a reset.
  */
 
-export const incrementAction = (value = 1) => {
+export const incrementAction = (value:number = 1) => {
     return {
         type: INCREMENT,
         payload: value,
@@ -21,7 +21,7 @@ export const decrementAction = (value = 1) => {
     }
 }
 
-export const resetAction = (value = 0) => {
+export const resetAction = (value : number = 0) => {
     return {
         type: RESET,
         payload: value,
@@ -29,18 +29,16 @@ export const resetAction = (value = 0) => {
 }
 
 export const changeResetValAction = (value = 0) => {
-    value = value === "" ? 0 : value;
     return {
         type: CHANGE_RESET_VAL,
-        payload: parseInt(value),
+        payload: value,
     }
 }
 
 export const changeStepAction = (value = 1) => {
-    value = value === "" ? 0 : value;
     return {
         type: CHANGE_STEP,
-        payload: parseInt(value),
+        payload: value,
     }
 }
 

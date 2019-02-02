@@ -7,22 +7,27 @@ import { INCREMENT, DECREMENT, RESET, CHANGE_RESET_VAL, CHANGE_STEP } from "../a
  */
 
 
-function updateObject(oldObject, newValues) {
+function updateObject(oldObject : ReduxState, newValues : any) {
   // Encapsulate the idea of passing a new object as the first parameter
   // to Object.assign to ensure we correctly copy data instead of mutating
-  return Object.assign({}, oldObject, newValues)
+  return (<any>Object).assign({}, oldObject, newValues)
 }
 
 
-export default (state, action) => {
+export default (state : ReduxState, action : Action) => {
   
   let pl = action.payload;
+  
+  // Idk why, I need those two lines to be sure 
+  // that it is making and addintion and not a concatenation
+  pl = parseInt(pl);
+  pl = isNaN(pl) ? 0 : pl;
 
   switch (action.type) {
     case INCREMENT:
-      if (pl === '') pl = 0;
+      // if (pl === '') pl = 0;
       return updateObject(state, {
-        counter: state.counter + parseInt(pl),
+        counter: state.counter + pl,
         clickIncrement: state.clickIncrement + 1,
       });
 
@@ -43,7 +48,7 @@ export default (state, action) => {
     case CHANGE_RESET_VAL:
       return updateObject(state, {
         resetValue: pl,
-        resetValueDisp: pl == 0 ? '' : pl.toString()
+        resetValueDisp: pl,
       });
 
     case CHANGE_STEP:
